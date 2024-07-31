@@ -1,7 +1,8 @@
+import { Box, Button, HStack } from "@yamada-ui/react";
 import { useState } from "react";
 
 function CountPreview({count}: {count: number}) {
-  return <div>count: {count}</div>
+  return <Box color={"red"}>count: {count}</Box>
 }
 
 function App() {
@@ -12,20 +13,22 @@ function App() {
   return (
     <>
     <CountPreview count={count}/>
-    <button onClick={function(){
+    <HStack>
+    <Button onClick={function(){
       // count++
       setCount(count+1)
       console.log(count);
       
-    }}>+</button>
-    <button onClick={function(){
+    }}>+</Button>
+    <Button onClick={function(){
       if(count == 0){
         return
       }
       setCount(count-1)
       console.log(count);
       
-    }}>-</button>
+    }}>-</Button>
+    </HStack>
     </>
   )
 }
